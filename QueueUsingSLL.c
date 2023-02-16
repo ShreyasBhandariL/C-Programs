@@ -9,7 +9,7 @@ struct node
 typedef struct node *NODE;
 NODE getnode()
 {
-    int x;
+    NODE x;
     x=(NODE)malloc(sizeof(NODE));
     return x;
 }
