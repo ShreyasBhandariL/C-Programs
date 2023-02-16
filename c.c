@@ -53,7 +53,7 @@ cur=cur->link;
 }
 if(cur==NULL)
 {
-printf("The given element is not there\n");
+printf("The given element is not present\n");
 return first;
 }
 }
