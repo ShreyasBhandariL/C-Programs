@@ -8,7 +8,7 @@ struct node *link;
 typedef struct node *NODE;
 NODE getnode()
 {
-int *x;
+NODE *x;
 x=(NODE)malloc(sizeof(NODE));
 return x;
 }
@@ -22,27 +22,41 @@ return temp;
 }
 NODE delete(NODE first,int key)
 {
-NODE temp;
 NODE cur;
 NODE prev;
-prev=NULL;
 cur=first;
-temp=cur;
+if(first==NULL)
+{
+printf("The List is Empty\n");
+return first;
+}
+else if(first->info==key)
+{
+first=first->link;
+printf("The Deleted item is %d\n",cur->info);
+free(cur);
+return first;
+}
+else
+{
+prev=NULL;
 while(cur!=NULL)
 {
-
 if(key==cur->info)
 {
-printf("The deletd item is %d\n",cur->info);
-cur=cur->link;
-free(temp);
-prev->link=cur;
+printf("The Deleted item is %d\n",cur->info);
+prev->link=cur->link;
+free(cur);
 }
 prev=cur;
 cur=cur->link;
-temp=cur;
 }
+if(cur==NULL)
+{
+printf("The given element is not there\n");
 return first;
+}
+}
 }
 void display(NODE first)
 {
